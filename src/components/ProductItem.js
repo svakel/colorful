@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import Product from './Product.js'
+import React  from 'react';
+import { Link } from 'react-router-dom';
+
 
 const ProductItem = (props) => {
 
@@ -9,23 +10,18 @@ const ProductItem = (props) => {
     const colorNumber = props.index;
     const result = `color${colorNumber} box`;
     const title = props.name;
+    const id = props.id;
 
-    // renderProduct (){
-    //     return(
-    //         <div>
-    //             <Product />
-
-    //         </div>
-    //     )
-    // onClick={this.renderProduct}
-
-    // }
+    const url = `/product/${id}`; 
+    console.log('url', url) 
 
     return (
 
-        <div  className={result} title={title} >
-         
-        </div>
+        <Link to={url} nro={id} type="hidden" >
+            <span style={{"display": "block"}}>
+                <div className={result} title={title} ></div>
+            </span>
+        </Link>
     );
     
 }

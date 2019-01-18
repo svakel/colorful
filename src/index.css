@@ -26,18 +26,26 @@ header {
   width: 98%;
   height: 90px;
   position: fixed;
+  top:0;
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  
+}
+
+.navigation{
+  z-index: 15;
 }
 
 .container{
-  margin-top: 50px;
+  margin-top: 100px;
   width: 85%;
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 50px auto;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 0;
 }
 
 
@@ -182,6 +190,8 @@ button {
   /* border: 1px solid black; */
   overflow: hidden;
   padding: 0 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .product-content-left{
@@ -222,4 +232,8 @@ button {
   width: 80px;
   height: 200px;
   background-color: none;
+}
+
+.nav{
+  z-index: 10;
 }

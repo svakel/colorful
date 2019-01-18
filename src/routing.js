@@ -3,11 +3,9 @@ import{ BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Product from './components/Product.js';
 import ProductContainer from './components/ProductContainer.js';
 
-import './App.css';
-
-const App = appProps => (
+const routing = (
   <Router>
-    <div className="App">
+    <div>
       <Switch>
           <Route exact name="index" path="/" component={ProductContainer} />
           <Route path="/product/:id" component={Product} />
@@ -16,7 +14,7 @@ const App = appProps => (
       </Switch>
     </div>
   </Router>
-)
+);
 
-export default App;
 
+export default routing;
