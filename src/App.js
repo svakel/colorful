@@ -1,22 +1,32 @@
-import React  from 'react';
+import React, { Component } from 'react';
 import{ BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Product from './components/Product.js';
-import ProductContainer from './components/ProductContainer.js';
-
+//import Product from './components/Product.js';
+import ProductList from './components/ProductList.js';
+import ProductDetails from './components/ProductDetails.js';
+import Cart from './components/Cart.js';
+import Default from './components/Default.js';
+import Navigation from './components/Navigation.js';
 import './App.css';
 
-const App = appProps => (
-  <Router>
-    <div className="App">
-      <Switch>
-          <Route exact name="index" path="/" component={ProductContainer} />
-          <Route path="/product/:id" component={Product} />
-          <Route path="/colors" component={Product} />
+class App extends Component {
 
-      </Switch>
-    </div>
-  </Router>
-)
+  render() {
+
+    return (
+      <Router>
+        <React.Fragment>
+          <Navigation />
+          <Switch>
+            <Route exact name="index" path="/" component={ProductList} />
+            <Route path="/product/:id" component={ProductDetails} />
+            <Route path="/cart" components={Cart} />
+            <Route component={Default} /> 
+          </Switch>
+        </React.Fragment>
+      </Router>
+    )
+  }
+}
 
 export default App;
 

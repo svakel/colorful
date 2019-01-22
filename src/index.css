@@ -1,12 +1,27 @@
+:root{
+  --mainBlue: #2a2a72;
+  --mainWhite:#f3f3f3;
+  --mainDark: #232528;
+}
+
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--mainWhite) !important;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--mainDark);
 }
+
+.text-title{
+
+}
+
+.text-blue{}
+.text-bright{}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
