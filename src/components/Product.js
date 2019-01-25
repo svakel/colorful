@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class Product extends Component {
 
     render() {
-        const { product_id, name, price, description, inCart } = this.props.product;
+        const { name, value, price, description, product_id, inCart } = this.props.product;
 
         return (
 
@@ -15,8 +15,10 @@ class Product extends Component {
                     pathname: `/product/${product_id}`,
                     state: {
                       name: name,
+                      value: value,
                       price: price,
-                      description: description
+                      description: description,
+                      product_id
                     }
                     }} 
                     type="hidden" >

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation.js'
 
-class Cart extends Component {
+class Favourites extends Component {
 
     render() {
         return (
@@ -10,11 +10,12 @@ class Cart extends Component {
                     <Navigation />
                 </div>
                 <div className="container">
-                    <h1>Hello from Cart</h1>
+                    <h1>Hello from Favourites</h1>
                 </div>
             </div>
+            
         );
     }
 }
 
-export default Cart;
+export default Favourites;

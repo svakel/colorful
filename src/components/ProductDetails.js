@@ -20,7 +20,7 @@ class ProductDetails extends Component {
 
     render() {
         const product_id = Number(this.props.match.params.id);
-        const result2 = `color${product_id} box2`;
+        const result2 = `color${product_id} product-box4`;
        
         return (
             <div>
@@ -30,15 +30,15 @@ class ProductDetails extends Component {
                     <div className="product-content-left">
                         <div className={result2} title={this.state.name}>
                         <div className="box2-2"></div>
-                        <div className="box2-3"></div>
-                        <div className="box2-4"></div> 
+                        {/* <div className="box2-3"></div>
+                        <div className="box2-4"></div>  */}
                     </div>
                     </div>
 
                     <div className="product-content-right">
                         <div className="product-text">
                             <h3>{this.state.name} </h3>
-                            <h5>{this.state.price}  </h5>
+                            <h5>Hinta: {this.state.price}  </h5>
                             <div>
                                 {this.state.description}
                             </div>
@@ -46,14 +46,13 @@ class ProductDetails extends Component {
                         
                         <div>
                             <div>
+                                <button>Takaisin tuotesivulle </button>
                                 <button>Lisää ostoskoriin </button>
                                 <button>Lisää toivelistalle </button>
                             </div>
-                            <p>Ilmainen toimitus yli 120 € tilauksiin (normaali 5,95€) <span><strong>Toimitustiedot</strong></span></p>
+                            {/* <p>Ilmainen toimitus yli 120 € tilauksiin (normaali 5,95€) <span><strong>Toimitustiedot</strong></span></p> */}
                         </div>
-                    </div>
-                    
-                    <div className="other-products">
+                        <div className="other-products">
                         <h4>Katso myös nämä tuotteet</h4>
                         <div className="small-box-container">
                             <div className="small-box color2"></div>
@@ -62,6 +61,12 @@ class ProductDetails extends Component {
                             <div className="small-box color5"></div>
                         </div>
                     </div>
+
+
+
+                    </div>
+                    
+                    
                 </div>
             </div>
             
