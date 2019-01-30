@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class Product extends Component {
 
@@ -18,7 +18,8 @@ class Product extends Component {
                       value: value,
                       price: price,
                       description: description,
-                      product_id
+                      product_id: product_id,
+                      inCart: inCart
                     }
                     }} 
                     type="hidden" >
@@ -27,36 +28,21 @@ class Product extends Component {
                     </span>
                 </Link>
 
-                <button 
-                    //className="" 
-                    disabled={inCart ? true : false} 
-                    onClick = {() => {
-                        console.log('added to the cart');   
-                    }}
-                    >
-                    {inCart ? (
-                        <p className="nappi" disabled>
-                            {" "}
-                            in cart
-                        </p>
-                    ) : (
-                        <p>Lisää ostoskoriin</p>
-                    )}
-                
-                </button>
-
             </div>
         );
         
     }
 }
 
-// Product.propTypes = {
-//     product: PropTypes.shape({
-//         id:PropTypes.number,
-//         name:PropTypes.string,
-//         price:PropTypes.number
-//     }).isRequired
-// };
+Product.propTypes = {
+    product: PropTypes.shape({
+        id:PropTypes.string,
+        name:PropTypes.string,
+        price:PropTypes.number,
+        description: PropTypes.string,
+        product_id: PropTypes.number,
+        inCart: PropTypes.boolean
+    }).isRequired
+};
 
 export default Product;
