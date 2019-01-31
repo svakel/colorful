@@ -1,33 +1,13 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation.js'
 import CartItem from './CartItem.js';
+import { ProductConsumer } from '../context.js';
 
 class Cart extends Component {
 
     render() {
+        const cartTotalSum = 0;
         
-        const productDummyData = [{
-            name: "red",
-            price: 89.0,
-            quantity: 2
-        },
-        {
-            name: "black",
-            price: 189.0,
-            quantity: 1
-        }]
-
-        const listItems = productDummyData.map((item) =>
-            <CartItem key={item.name}
-            name={item.name}
-            price={item.price}
-            quantity={item.quantity} 
-            />
-            );
-
-        // const totalSum = 
-
-
         return (
             <div>
                 <div className="navigation">
@@ -43,7 +23,38 @@ class Cart extends Component {
                             <th>Määrä</th>
                             <th>Yhteensä</th>
                         </tr>
-                        {listItems}
+
+                        <ProductConsumer>
+                            {(value) => {
+                                return value.cartProducts.map(cart => {
+
+                                    return cart.inCart.map(cartRow => {
+                                        
+                                    const product = value.products.find(_product => {
+                                        return _product.product_id === cartRow.product_id;
+                                        // const subtotal = [];
+
+                                        // cartTotalSum += product.price * cartRow.quantity;
+
+                                    })
+                                        
+                                        return <CartItem
+                                        key={cartRow.product_id}
+                                        price={product.price}
+                                        quantity={cartRow.quantity}
+                                        subTotal={product.price * cartRow.quantity }
+                                        product={product}
+                                        cartRow={cartRow}
+                                        />
+
+                                    
+                                    
+                                    })
+                                })
+                            }}
+
+                        </ProductConsumer>
+                       
                         <tr>
                             <td>Yhteensä</td>
                             <td></td>

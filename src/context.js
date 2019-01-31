@@ -16,18 +16,28 @@ class ProductProvider extends Component {
     }
 
     componentDidMount() {
-        axios
-            .get('http://localhost:3001/colors')
-            .then(responseColors => {
-                this.setState({ products: responseColors.data })
-                // console.log('tuotteet', this.state.products)
-            })
+        axios.all([
+            axios.get('http://localhost:3001/colors'),
+            axios.get('http://localhost:3001/cart')
+        ])
+        .then(axios.spread((responseColors, responseCart) => {
+            this.setState({ products: responseColors.data })
+            this.setState({ cartProducts: responseCart.data });
+            console.log(responseCart.data)
+        }))
+        .catch(error => console.log(error));
+    }
+            // .get('http://localhost:3001/colors')
+            // .then(responseColors => {
+            //     this.setState({ products: responseColors.data })
+            //     // console.log('tuotteet', this.state.products)
+            // })
             // .get('http://localhost:3001/cart')
             // .then(responseCart => {
             //     this.setState({ cartProducts: responseCart.data })
-            //     console.log('cart', this.state.cartProducts)
+            //     // console.log('cart', this.state.cartProducts)
             // })
-    }
+    
 
     handleDetail = () => {
         console.log('hello from detail');

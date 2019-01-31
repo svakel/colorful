@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
 
 class CartItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            price: this.props.price,
-            quantity: this.props.quantity
-        }
-    }  
 
     render() {
-        // const { name, price, quantity } = this.props.location.state
-        const itemSum = this.state.price * this.props.quantity;
-
+        const product_id = this.props.cartRow.product_id;
+        // const cartRowSum = this.props.product.price * this.props.cartRow.quantity;
         
+        console.log ('ID', product_id);
+        console.log('cartRow', this.props.cartRow)
+        console.log('product', this.props.product)
+
         return (
             <tr>
-                <td>{this.props.name}</td>
-                <td>{this.props.price}</td>
-                <td>{this.props.quantity}</td>
-                <td>{itemSum}</td>
+                <td>{this.props.product.name}</td>
+                <td>{this.props.product.price}</td>
+                <td >{this.props.cartRow.product_id}</td>
+                <td>{this.props.cartRow.quantity}</td>
+                <td>{this.props.subTotal}</td>
             </tr>
         );
     }
